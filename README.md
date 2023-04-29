@@ -55,4 +55,6 @@ I uploaded the trained model to reside in the same location as the application f
 
 7. **Model Performance**
 
-The model positively responds to values of Average age between values 25 to 80, and Premium amounts combination, but some predictions are ambiguous, like the average age from 0 to 22 which predicts the business to be Onerous regardless of the premium amount. On a keener look, the Age that predicts Non Onerous (Profit Making) on a premmium of 1M seems to bethe age from the First quartile to the Third quartile. Above the Third Quartile the business is predicted to be Onerous (loss Making).  
+The model positively responds to values of Average age between values 25 to 80, and Premium amounts combination, but some predictions are ambiguous, like the average age from 0 to 22 which predicts the business to be Onerous regardless of the premium amount. On a keener look, the Age that predicts Non Onerous (Profit Making) on a premium of 1M seems to be the age after the First quartile(23) to the value 75. Above 75, the business is predicted to be Onerous (loss Making).  
+
+8. **Conclusion**
