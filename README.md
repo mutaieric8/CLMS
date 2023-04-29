@@ -51,3 +51,8 @@ I then saved my model as a pickle file ready for use by applications
 On deployment, I did the UI part using python, generating a form that enables users to key in the values of all the feature variables that were used to train the model. The form has a button that once clicked, depending on the values keyed in, will determine whether the business the company is about to onboard will be Onerous or Non-Onerous at the end. This will aid in meeting the IFRS 17 requirement of having to classify a contract as either Onerous or Non Onerous at inception, for tracking to the contract end.
 
 I uploaded the trained model to reside in the same location as the application file(UI) to enable loading directly without the need to host as an API service. The application is hosted as a streamlit app, and I have added the URL link as the website address on the Github public repository.
+
+
+7. **Model Performance**
+
+The model positively responds to values of Average age between values 25 to 80, and Premium amounts combination, but some predictions are ambiguous, like the average age from 0 to 22 which predicts the business to be Onerous regardless of the premium amount. On a keener look, the Age that predicts Non Onerous (Profit Making) on a premmium of 1M seems to bethe age from the First quartile to the Third quartile. Above the Third Quartile the business is predicted to be Onerous (loss Making).  
