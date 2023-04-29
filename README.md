@@ -7,7 +7,7 @@ This necessitates insurance companies to come up with actuarial models that will
 
 Having been part of the implementation team for the new standard, it challenged me to find ways of coming up with a tool that will enable the organization I work for to make this classification by a click of a button.
 
-I then embarked on exploring ways to use machine learning knowledge I gained from ADS, CRISP-DM framework, to train a model using our historical premiums and claims data to calculate the loss ratios for each policy, and depending on the value of the loss ratio, mark the policy as either onerous or non-onerous.
+Having classified this problem as a clasification problem, I then embarked on exploring ways to use machine learning knowledge I gained from ADS, CRISP-DM framework, and specifically supervised machine learning, to train a model using our historical premiums and claims data to calculate the loss ratios for each policy, and depending on the value of the loss ratio, mark the policy as either onerous or non-onerous.
 
 2. **Data Collection**
 
