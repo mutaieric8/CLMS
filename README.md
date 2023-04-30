@@ -58,4 +58,5 @@ I uploaded the trained model to reside in the same location as the application f
 The model positively responds to values of Average age between values 25 to 80, and Premium amounts combination, but some predictions are ambiguous, like the average age from 0 to 22 which predicts the business to be Onerous regardless of the premium amount. On a keener look, the Age that predicts Non Onerous (Profit Making) on a premium of 1M seems to be the age after the First quartile(23) to the value 75. Above 75, the business is predicted to be Onerous (loss Making).  
 
 8. **Conclusion**
+
 In conclusion, I have been able to get insights about the significance of getting accurate KYCs for our clients. From the model I built, it was evident that some KYCs were not captured correctly. I will be able to give a data informed advice to our management on the need to tighten rules on better data processing. We shall also embark on data cleanup exercise.
