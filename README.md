@@ -59,4 +59,4 @@ The model positively responds to values of Average age between values 25 to 80, 
 
 8. **Conclusion**
 
-In conclusion, I have been able to get insights about the significance of getting accurate KYCs for our clients. From the model I built, it was evident that some KYCs were not captured correctly. I will be able to give a data informed advice to our management on the need to tighten rules on better data processing. We shall also embark on data cleanup exercise.
+In conclusion, I have been able to get insights about the significance of getting accurate KYCs for our clients. I have learnt that the biggest impediment to application of data science and ML in industries is the lack of enough data to do so. Most data is unclean. From the model I built, it was evident that some KYCs were not captured correctly. I will be able to give a data informed advice to our management on the need to tighten rules on better data processing. We shall also embark on data cleanup exercise.
