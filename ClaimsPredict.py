@@ -61,12 +61,12 @@ if selection== 'Analytics':
 
     with col1: 
         fig = plt.figure(figsize=(10, 4))
-        fig = px.histogram(claims_data_model_valid, x=["BASIC_PREMIUM"], template = 'plotly_dark', title = 'Histogram of Premiums')
+        fig = px.histogram(claims_data_model_valid, x=["BASIC_PREMIUM"], template = 'plotly_dark', title = 'Paid Premium')
         #fig.show()
         st.plotly_chart(fig)
     with col2:
         fig = plt.figure(figsize=(10, 4))
-        fig = px.histogram(claims_data_model_valid, x=["AVG_AGE"], template = 'plotly_dark', title = 'Histogram of Age')
+        fig = px.histogram(claims_data_model_valid, x=["AVG_AGE"], template = 'plotly_dark', title = 'Average Age')
         #fig.show()
         st.plotly_chart(fig)
     col3, col4 = st.columns(2)
@@ -75,11 +75,11 @@ if selection== 'Analytics':
         claims_data_model_valid['CLAIMS_AMT_TRANSFORMED']=np.log(claims_data_model_valid['CLAIMS_AMT'])
         claims_data_model_valid['CLAIMS_AMT_TRANSFORMED']=minmax_scaler.fit_transform(claims_data_model_valid[['CLAIMS_AMT_TRANSFORMED']])
         fig = plt.figure(figsize=(10, 4))
-        fig = px.histogram(claims_data_model_valid, x=["CLAIMS_AMT_TRANSFORMED"], template = 'plotly_dark', title = 'Histogram of Claims')
+        fig = px.histogram(claims_data_model_valid, x=["CLAIMS_AMT_TRANSFORMED"], template = 'plotly_dark', title = 'Claims')
         #fig.show()
         st.plotly_chart(fig)
     with col4:
         fig = plt.figure(figsize=(10, 4))
-        fig = px.histogram(claims_data_model_valid, x=["AVG_HEIGHT"], template = 'plotly_dark', title = 'Histogram of Height')
+        fig = px.histogram(claims_data_model_valid, x=["AVG_HEIGHT"], template = 'plotly_dark', title = 'Average Height')
         #fig.show()
         st.plotly_chart(fig)
