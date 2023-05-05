@@ -9,9 +9,9 @@ import plotly.express as px
 from sklearn.preprocessing import StandardScaler,MinMaxScaler
 from pycaret.regression import load_model
 menu = ['Prediction','Analytics']
-selection = st.sidebar.selectbox("Medical Insurance Contracts", menu)
+selection = st.sidebar.selectbox("IFRS 17 Contracts", menu)
 
-st.sidebar.write('Insurance Business.')
+st.sidebar.write('Medical Insurance Contracts.')
 
 if selection== 'Prediction':
     st.title('IFRS 17 Insurance Contracts Classifier')
