@@ -51,7 +51,7 @@ if selection== 'Prediction':
         st.success(f'{rs}')
 
 if selection== 'Analytics':
-    claims_data=pd.read_excel('Data.xlsx')
+    claims_data=pd.read_excel(r'Data.xlsx')
     factor=2
     upper_lim=claims_data['BASIC_PREMIUM'].mean()+claims_data['BASIC_PREMIUM'].std()*factor
     lower_lim=claims_data['BASIC_PREMIUM'].mean()-claims_data['BASIC_PREMIUM'].std()*factor
