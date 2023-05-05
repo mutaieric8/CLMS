@@ -8,7 +8,6 @@ import seaborn as sns
 import plotly.express as px
 from sklearn.preprocessing import StandardScaler,MinMaxScaler
 from pycaret.regression import load_model
-
 menu = ['Prediction','Analytics']
 selection = st.sidebar.selectbox("Medical Insurance Contracts", menu)
 
@@ -18,7 +17,7 @@ if selection== 'Prediction':
     st.title('IFRS 17 Insurance Contracts Classifier')
     #model = pickle.load(open(r"C:\Users\emutai\Desktop\GIT Stuff\Project\Claims_pred_RF.pkl", "rb"))
     model = load_model('Claims_pred_RF')
-    minmax_scaler=MinMaxScaler()
+    
 
 #  def predict( AVG_AGE_SCALED, AVG_WEIGHT_SCALED, AVG_HEIGHT_SCALED, BASIC_PREMIUM_SCALED):
 #     data = pd.DataFrame([[Age, Weight, Height, Premium]])
@@ -52,9 +51,35 @@ if selection== 'Prediction':
         st.success(f'{rs}')
 
 if selection== 'Analytics':
-    #df=pd.read_excel(r"C:\Users\emutai\Desktop\GIT Stuff\Project\Data.xlsx")
-    df=sns.load_dataset('titanic')
-    fig = plt.figure(figsize=(10, 4))
-    sns.relplot(data=df,x='age',y='fare',hue='sex')
-    st.pyplot(fig)
-  
+    claims_data=pd.read_excel(r"C:\Users\emutai\Desktop\GIT Stuff\Project\Data.xlsx")
+    factor=2
+    upper_lim=claims_data['BASIC_PREMIUM'].mean()+claims_data['BASIC_PREMIUM'].std()*factor
+    lower_lim=claims_data['BASIC_PREMIUM'].mean()-claims_data['BASIC_PREMIUM'].std()*factor
+    claims_data_model_valid=claims_data[(claims_data['BASIC_PREMIUM']>=lower_lim) & (claims_data['BASIC_PREMIUM']<=upper_lim)]
+    col1, col2 = st.columns(2)
+    #Removing outliers in BASIC_PREMIUM
+
+    with col1: 
+        fig = plt.figure(figsize=(10, 4))
+        fig = px.histogram(claims_data_model_valid, x=["BASIC_PREMIUM"], template = 'plotly_dark', title = 'Histogram of Premiums')
+        #fig.show()
+        st.plotly_chart(fig)
+    with col2:
+        fig = plt.figure(figsize=(10, 4))
+        fig = px.histogram(claims_data_model_valid, x=["AVG_AGE"], template = 'plotly_dark', title = 'Histogram of Age')
+        #fig.show()
+        st.plotly_chart(fig)
+    col3, col4 = st.columns(2)
+    with col3: 
+        minmax_scaler=MinMaxScaler()
+        claims_data_model_valid['CLAIMS_AMT_TRANSFORMED']=np.log(claims_data_model_valid['CLAIMS_AMT'])
+        claims_data_model_valid['CLAIMS_AMT_TRANSFORMED']=minmax_scaler.fit_transform(claims_data_model_valid[['CLAIMS_AMT_TRANSFORMED']])
+        fig = plt.figure(figsize=(10, 4))
+        fig = px.histogram(claims_data_model_valid, x=["CLAIMS_AMT_TRANSFORMED"], template = 'plotly_dark', title = 'Histogram of Claims')
+        #fig.show()
+        st.plotly_chart(fig)
+    with col4:
+        fig = plt.figure(figsize=(10, 4))
+        fig = px.histogram(claims_data_model_valid, x=["AVG_HEIGHT"], template = 'plotly_dark', title = 'Histogram of Height')
+        #fig.show()
+        st.plotly_chart(fig)
